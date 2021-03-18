@@ -13,7 +13,7 @@ if __name__ == "__main__":
 
     with open('modlist.csv', encoding='utf8') as f:
         modlist = {
-            x[2]: (x[0], x[1])
+            x[1]: (x[0], x[1])
             for x in csv.reader(f)
         }
 
@@ -22,7 +22,7 @@ if __name__ == "__main__":
 
     xml = ET.fromstring(xml_str)
     mods_status = sorted([
-        modlist[id.text] for id in xml.findall('./modIds/li')
+        modlist[id.text] for id in xml.findall('./modNames/li')
         if id.text in modlist
     ], key=lambda x: x[0])
 
