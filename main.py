@@ -11,13 +11,13 @@ if __name__ == "__main__":
         "Everything works",
     ]
 
-    with open('modlist.csv') as f:
+    with open('modlist.csv', encoding='utf8') as f:
         modlist = {
             x[2]: (x[0], x[1])
             for x in csv.reader(f)
         }
 
-    with open('modlist.xml') as f:
+    with open('modlist.xml', encoding='utf8') as f:
         xml_str = f.read()
 
     xml = ET.fromstring(xml_str)
